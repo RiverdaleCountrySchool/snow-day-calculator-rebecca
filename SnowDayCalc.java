@@ -33,15 +33,15 @@ public class SnowDayCalc {
         // temp conditional
         if (temp <= -100 || temp >= 100) {
             System.out.println("please input a valid temperature.");;
-        } else if (temp <= 40) {
+        } else if (temp <= 40 && temp > 32) {
             score += 1;
-        } else if (temp <= 32) {
+        } else if (temp <= 32 && temp > 0) {
             score += 2;
         } else if (temp <= 0) {
             score += 3;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // inches of snowfall conditional
         if (inches < 0 || inches > 50) {
@@ -54,7 +54,7 @@ public class SnowDayCalc {
             score +=3;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // dotw conditional
         if (!(day == 'M' || day == 'T' || day == 'W' || day == 'R' || day == 'F')) {
@@ -67,7 +67,7 @@ public class SnowDayCalc {
             score +=3;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // anticipation conditional
         if (!(anticipation == 'A' || anticipation == 'B' || anticipation == 'C' || anticipation == 'D')) {
@@ -78,14 +78,14 @@ public class SnowDayCalc {
             score += 2;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // previous snow day conditional
         if (!prevsnowday) {
             score += 1;;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // busyness conditional
         if (busyness < 0 || busyness > 3) {
@@ -98,7 +98,7 @@ public class SnowDayCalc {
             score +=3;
         }
 
-        System.out.println(score);
+        //System.out.println(score);
 
         // print user's final chance
         // user's total pts over total pts available
