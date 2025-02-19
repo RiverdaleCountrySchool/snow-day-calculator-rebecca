@@ -3,6 +3,10 @@ package PACKAGE_NAME;
 public class SnowDayCalc {
     public static void main(String[] args) {
 
+        String reset = "\u001B[0m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
+
         // instructions
         System.out.println("welcome to snow day calculator!");
         System.out.println(" please provide the predicted temperature of the target day in fahrenheit");
@@ -17,7 +21,7 @@ public class SnowDayCalc {
 
        // check for # of args
         if (args.length != 6){
-            System.out.println(" please provide exactly 6 arguments.");
+            System.out.println(red + " please provide exactly 6 arguments." + reset);
             return;
         }
 
@@ -32,7 +36,7 @@ public class SnowDayCalc {
 
         // temp conditional
         if (temp <= -100 || temp >= 100) {
-            System.out.println("please input a valid temperature.");;
+            System.out.println(red + temp + " is not a valid input for temperature" + reset);;
         } else if (temp <= 40 && temp > 32) {
             score += 1;
         } else if (temp <= 32 && temp > 0) {
@@ -45,12 +49,12 @@ public class SnowDayCalc {
 
         // inches of snowfall conditional
         if (inches < 0 || inches > 50) {
-            System.out.println("not a valid input for inches of snowfall.");
-        } else if (inches >= 0 && inches <= 2) {
+            System.out.println(red + inches + " is not a valid input for inches of snowfall." + reset);
+        } else if (inches > 0 && inches <= 3) {
             score += 1;
-        } else if (inches >= 3 && inches <= 5) {
+        } else if (inches >= 4 && inches <= 6) {
             score += 2;
-        } else if (inches >= 5) {
+        } else if (inches > 6) {
             score +=3;
         }
 
@@ -58,7 +62,7 @@ public class SnowDayCalc {
 
         // dotw conditional
         if (!(day == 'M' || day == 'T' || day == 'W' || day == 'R' || day == 'F')) {
-            System.out.println("not a valid input for day of the week.");
+            System.out.println(red + day + " is not a valid input for day of the week." + reset);
         } else if (day == 'M') {
             score += 1;
         } else if (day == 'R') {
@@ -71,7 +75,7 @@ public class SnowDayCalc {
 
         // anticipation conditional
         if (!(anticipation == 'A' || anticipation == 'B' || anticipation == 'C' || anticipation == 'D')) {
-            System.out.println("not a valid input for anticipation.");
+            System.out.println(red + anticipation + " is not a valid input for anticipation." + reset);
         } else if (anticipation == 'C') {
             score += 1;
         } else if (anticipation == 'D') {
@@ -89,7 +93,7 @@ public class SnowDayCalc {
 
         // busyness conditional
         if (busyness < 0 || busyness > 3) {
-            System.out.println("not a valid input for busyness.");
+            System.out.println( red + busyness + " is not a valid input for busyness." + reset);
         } else if (busyness == 2) {
             score += 1;
         } else if (busyness == 1) {
@@ -98,11 +102,11 @@ public class SnowDayCalc {
             score +=3;
         }
 
-        //System.out.println(score);
+        // System.out.println(score);
 
         // print user's final chance
         // user's total pts over total pts available
-        System.out.println("your chance of a snowday is... " + Math.round((score/15) * 100) + "%");
+        System.out.println("your chance of a snow day is... " + green + Math.round((score/15) * 100) + "%" + reset);
 
     }
 }
